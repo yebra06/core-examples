@@ -3,10 +3,26 @@
 #include <iostream>
 using namespace std;
 
-list::list(): len(0), head(0) {}
+list::list()
+:len(0), head(0) {}
+
+list::list(const list& other)
+: len(other.len), head(0) {
+	node* temp = other.get_head();
+
+	while (temp != 0) {
+		insert_last(temp->data);
+		temp = temp->next;
+	}
+}
 
 list::~list() {
 	delete_list();
+}
+
+list& list::operator=(list src) {
+	swap(head, src.head);
+	return *this;
 }
 
 void list::insert_first(const int& data) {
@@ -54,6 +70,25 @@ void list::delete_list() {
 		delete_first();
 }
 
+void list::concat(const list& l2) {
+	node* temp1 = head;
+	node* temp2 = l2.get_head();
+
+	while (temp1->next)
+		temp1 = temp1->next;
+
+	while (temp2->next) {
+		insert_last(temp2->data);
+		temp2 = temp2->next;
+	}
+
+	insert_last(temp2->data);
+}
+
 bool list::is_empty() const {
 	return head == 0;
+}
+
+node* list::get_head() const {
+	return head;
 }

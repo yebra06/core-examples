@@ -20,16 +20,13 @@ int main() {
 	l.insert_last(5);
 	l.display(cout);
 
-	l.delete_list();
+	cout << "test copy constructor" << endl;
+	list l2(l);
+	l2.display(cout);
+
+	cout << "test assignment operator" << endl;
+	list l3 = l;
+	l3.display(cout);
 
 	return 0;
 }
-
-/* output
-insert first
-3 2 1 
-delete first
-2 1 
-insert last
-2 1 4 5 
-*/
