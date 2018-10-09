@@ -2,31 +2,23 @@
 using namespace std;
 #include "list.h"
 
+void display(list& l);
 int main() {
-	list l = list();
-
-	cout << "insert first" << endl;
+	list l;
+	l.insert_last(3);
+	l.insert_first(10);
 	l.insert_first(1);
-	l.insert_first(2);
-	l.insert_first(3);
-	l.display(cout);
-
-	cout << "delete first" << endl;
-	l.delete_first();
-	l.display(cout);
-
-	cout << "insert last" << endl;
-	l.insert_last(4);
-	l.insert_last(5);
-	l.display(cout);
-
-	cout << "test copy constructor" << endl;
-	list l2(l);
-	l2.display(cout);
-
-	cout << "test assignment operator" << endl;
-	list l3 = l;
-	l3.display(cout);
-
+	display(l);
+	l.delete_at_position(2);
+	display(l);
 	return 0;
+}
+void display(list& l) {
+	cout << "list size: " << l.size() << endl;
+	node* curr = l.get_head();
+	while (curr != 0) {
+		cout << curr->data << " ";
+		curr = curr->next;
+	}
+	cout << endl;
 }
