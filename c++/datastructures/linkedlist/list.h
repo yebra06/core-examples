@@ -19,6 +19,7 @@ public:
 	void delete_first();
 	void delete_last();
 	void delete_at_position(int position);
+	void delete_item(int data);
 	void delete_list();
 
 	// Accessors

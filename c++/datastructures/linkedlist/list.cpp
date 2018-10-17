@@ -141,6 +141,18 @@ void list::delete_at_position(int position) {
 	--len;
 }
 
+void list::delete_item(int item) {
+	int position = 0;
+	node* temp = head;
+
+	while (temp->next != 0 && temp->data != item) {
+		position++;
+		temp = temp->next;
+	}
+
+	delete_at_position(position);
+}
+
 void list::delete_list() {
 	while (!is_empty())
 		delete_first();

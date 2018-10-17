@@ -8,8 +8,10 @@ int main() {
 	l.insert_last(3);
 	l.insert_first(10);
 	l.insert_first(1);
+	l.insert_first(33);
+	l.insert_first(3);
 	display(l);
-	l.delete_at_position(2);
+	l.delete_item(1);
 	display(l);
 	return 0;
 }
