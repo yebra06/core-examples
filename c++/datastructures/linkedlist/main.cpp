@@ -9,6 +9,8 @@ int main() {
 	l.insert_first(10);
 	l.insert_first(1);
 	l.insert_first(33);
+	display(l);
+	l.insert_at_position(1, 1000);
 	l.insert_first(3);
 	display(l);
 	l.delete_item(1);
