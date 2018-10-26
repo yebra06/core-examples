@@ -8,7 +8,6 @@ for i in range(rows):
 	matrix[i] = [0] * cols
 
 # Fill matrix with 10s --- short way.
-#matrix = [[10]*cols]*rows
 
 # Display matrix
 for row in matrix:
