@@ -7,8 +7,6 @@ matrix = [0] * rows
 for i in range(rows):
 	matrix[i] = [0] * cols
 
-# Fill matrix with 10s --- short way.
-
 # Display matrix
 for row in matrix:
 	print(row)
@@ -31,3 +29,19 @@ matrix[0][1] = 10
 for row in matrix:
 	print(row)
 print()
+
+
+''' output
+[0, 0, 0, 0]
+[0, 0, 0, 0]
+[0, 0, 0, 0]
+
+[1, 1, 1, 1]
+[1, 1, 1, 1]
+[1, 1, 1, 1]
+
+[1, 10, 1, 1]
+[1, 1, 1, 1]
+[1, 1, 1, 1]
+
+'''
