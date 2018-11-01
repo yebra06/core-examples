@@ -53,6 +53,7 @@ void list::insert_last(const int& data) {
 }
 
 void list::insert_at_position(int position, const int& data) {
+	// Note: 0 is index of first list item.
 	if (position > len || position < 0) {
 		return;
 	} else if (position == 0 || head == nullptr) {
@@ -65,19 +66,16 @@ void list::insert_at_position(int position, const int& data) {
 
 	node* new_node = new node();
 	new_node->data = data;
-	new_node->next = nullptr;
-	node* curr = head;
 	node* prev = nullptr;
-	int curr_position = 0;
+	node* curr = head;
 
-	while (curr->next != nullptr && curr_position < position) {
+	for (int i = 0; i < position; i++) {
 		prev = curr;
 		curr = curr->next;
-		curr_position++;
 	}
 
-	prev->next = new_node;
 	new_node->next = curr;
+	prev->next = new_node;
 	++len;
 }
 
@@ -132,7 +130,7 @@ void list::delete_at_position(int position) {
 	node* temp = nullptr;
 	node* curr = head;
 
-	for (int i = 0; curr != nullptr && i < position-1; i++)
+	for (int i = 0; i < position-1; i++)
 		curr = curr->next;
 
 	temp = curr->next;
