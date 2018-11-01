@@ -4,13 +4,13 @@ using namespace std;
 #include <iostream>
 
 list::list()
-: len(0), head(0) {}
+: len(0), head(nullptr) {}
 
 list::list(const list& other)
-: len(other.len), head(0) {
+: len(other.len), head(nullptr) {
 	node* temp = other.get_head();
 
-	while (temp != 0) {
+	while (temp != nullptr) {
 		insert_last(temp->data);
 		temp = temp->next;
 	}
@@ -36,14 +36,14 @@ void list::insert_first(const int& data) {
 void list::insert_last(const int& data) {
 	node* new_node = new node();
 	new_node->data = data;
-	new_node->next = 0;
+	new_node->next = nullptr;
 
 	if (!head) {
 		head = new_node;
 	} else {
 		node* curr = head;
 
-		while (curr->next != 0)
+		while (curr->next != nullptr)
 			curr = curr->next;
 
 		curr->next = new_node;
@@ -55,7 +55,7 @@ void list::insert_last(const int& data) {
 void list::insert_at_position(int position, const int& data) {
 	if (position > len || position < 0) {
 		return;
-	} else if (position == 0 || head == 0) {
+	} else if (position == 0 || head == nullptr) {
 		insert_first(data);
 		return;
 	} else if (position == len) {
@@ -65,12 +65,12 @@ void list::insert_at_position(int position, const int& data) {
 
 	node* new_node = new node();
 	new_node->data = data;
-	new_node->next = 0;
+	new_node->next = nullptr;
 	node* curr = head;
-	node* prev = 0;
+	node* prev = nullptr;
 	int curr_position = 0;
 
-	while (curr->next != 0 && curr_position < position) {
+	while (curr->next != nullptr && curr_position < position) {
 		prev = curr;
 		curr = curr->next;
 		curr_position++;
@@ -85,10 +85,10 @@ void list::concat(const list& l2) {
 	node* temp1 = head;
 	node* temp2 = l2.get_head();
 
-	while (temp1->next != 0)
+	while (temp1->next != nullptr)
 		temp1 = temp1->next;
 
-	while (temp2->next != 0) {
+	while (temp2->next != nullptr) {
 		insert_last(temp2->data);
 		temp2 = temp2->next;
 	}
@@ -106,15 +106,15 @@ void list::delete_first() {
 
 void list::delete_last() {
 	node* curr = head;
-	node* prev = 0;
+	node* prev = nullptr;
 
-	while (curr->next != 0) {
+	while (curr->next != nullptr) {
 		prev = curr;
 		curr = curr->next;
 	}
 
 	delete curr;
-	prev->next = 0;
+	prev->next = nullptr;
 	--len;
 }
 
@@ -129,10 +129,10 @@ void list::delete_at_position(int position) {
 		return;
 	}
 
-	node* temp = 0;
+	node* temp = nullptr;
 	node* curr = head;
 
-	for (int i = 0; curr != 0 && i < position-1; i++)
+	for (int i = 0; curr != nullptr && i < position-1; i++)
 		curr = curr->next;
 
 	temp = curr->next;
@@ -145,7 +145,7 @@ void list::delete_item(int item) {
 	int position = 0;
 	node* temp = head;
 
-	while (temp->next != 0 && temp->data != item) {
+	while (temp->next != nullptr && temp->data != item) {
 		position++;
 		temp = temp->next;
 	}
@@ -163,7 +163,7 @@ int list::size() const {
 }
 
 bool list::is_empty() const {
-	return head == 0;
+	return head == nullptr;
 }
 
 node* list::get_head() const {

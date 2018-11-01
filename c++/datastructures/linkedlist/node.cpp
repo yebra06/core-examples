@@ -2,4 +2,4 @@
 
 #include <iostream>
 
-node::node(): data(0), next(0) {}
+node::node(): data(0), next(nullptr) {}
