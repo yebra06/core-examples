@@ -21,10 +21,11 @@ int main() {
 	}
 
 	// Display list.
-	for (int i = 0; i < SIZE; i++)
-		cout << "id: " <<  users[i].id << endl
-			<< users[i].first_name << endl
-			<< users[i].last_name << endl << endl;
+	for (int i = 0; i < SIZE; i++) {
+		cout << "id: " <<  users[i].id << endl;
+		cout << users[i].first_name << endl;
+		cout << users[i].last_name << endl << endl;
+	}
 
 	// Free allocated memory.
 	delete [] users;
