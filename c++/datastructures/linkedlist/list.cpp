@@ -26,7 +26,7 @@ list& list::operator=(list src) {
 }
 
 void list::insert_first(const int& data) {
-	node* new_node = new node();
+	node* new_node = new node;
 	new_node->data = data;
 	new_node->next = head;
 	head = new_node;
@@ -34,7 +34,7 @@ void list::insert_first(const int& data) {
 }
 
 void list::insert_last(const int& data) {
-	node* new_node = new node();
+	node* new_node = new node;
 	new_node->data = data;
 	new_node->next = nullptr;
 
@@ -64,7 +64,7 @@ void list::insert_at_position(int position, const int& data) {
 		return;
 	}
 
-	node* new_node = new node();
+	node* new_node = new node;
 	new_node->data = data;
 	node* prev = nullptr;
 	node* curr = head;
